@@ -1,0 +1,178 @@
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a href="#home" aria-controls="home" role="tab">OVERVIEW</a>
+    <a href="#" role="tab">TIMELINE</a>
+    <a href="#" role="tab">BUDGETS AND FLIGHTS</a>
+    <a href="#" role="tab">STRATEGIES</a>
+    <a href="#" role="tab">CREATIVES</a>
+    <a href="#" role="tab">PIXELS</a>
+    <a href="#" role="tab">VIEWABILITY OPTIMIZATION</a>
+</div>
+<div id="main">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="navbar-header">
+                        <span class="navbar-brand" (click)="openNav()"><fa name="bars"></fa>Line</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <form class="form-horizontal">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><fa name="search"></fa></span>
+                            <input type="text" class="form-control" placeholder="Search here..." aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3 col-sm-6 pull-right">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown" dropdown>
+
+
+                            <a role="button">
+                                <fa dropdownToggle name="bell" size="1x"></fa>
+                            </a>
+
+                            <!-- <span class="badge">4</span> -->
+                            <ul *dropdownMenu class="dropdown-menu">
+                                <!-- {3} -->
+                                <li><a href="#">Notification 1</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Notification 3</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown" dropdown>
+                            <!-- {1} -->
+                            <a dropdownToggle role="button">
+                                <!-- {2} -->
+                                Gregory Muran
+                                <fa name="chevron-down" size="1x"></fa>
+                            </a>
+                            <ul *dropdownMenu class="dropdown-menu">
+                                <!-- {3} -->
+                                <li><a href="#">My Profile</a></li>
+                                <li><a href="#">Settings</a></li>
+                                <li><a href="#">Sign Out</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <!-- Nav tabs -->
+            <div class="card">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li><a href="#home" aria-controls="home" role="tab">OVERVIEW</a></li>
+                    <li class="active"><a href="#" role="tab">TIMELINE</a></li>
+                    <li><a href="#" role="tab">BUDGETS AND FLIGHTS</a></li>
+                    <li><a href="#" role="tab">STRATEGIES</a></li>
+                    <li><a href="#" role="tab">CREATIVES</a></li>
+                    <li><a href="#" role="tab">PIXELS</a></li>
+                    <li><a href="#" role="tab">VIEWABILITY OPTIMIZATION</a></li>
+                    <li class="dropdown pull-right" dropdown>
+
+
+                        <a dropdownToggle role="button">
+                                    Actions<fa name="chevron-down" size="1x"></fa>
+                                </a>
+
+                        <!-- <span class="badge">4</span> -->
+                        <ul *dropdownMenu class="dropdown-menu">
+                            <!-- {3} -->
+                            <li><a href="#">Action 1</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Action 2</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Action 3</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-12 bg-white">
+                        <canvas baseChart [datasets]="barChartData" [colors]="chartColors" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                    <div class="col-sm-12 bg-white">
+                        <canvas baseChart [datasets]="barChartData" [colors]="chartColors" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                    <div class="col-sm-12 bg-white">
+                        <div>
+                            <ul class="timeline timeline-horizontal">
+                                <li *ngFor=" let notifications of notification " class="timeline-item">
+                                    <div class="timeline-badge info" tooltip="{{notifications.date}}" placement="bottom"><span class="badge">{{notifications.count}}</span></div>
+                                </li>
+                            </ul>
+                            <ul class="date">
+                                <li *ngFor=" let myDates of myDate ">{{myDates}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white row">
+
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dropdown" dropdown>
+                            <!-- {1} -->
+                            <button dropdownToggle role="button" class="btn btn-default">
+                                                    <!-- {2} -->
+                                                    Period Last 30 Days <fa name="chevron-down" size="1x"></fa> </button>
+                            <ul *dropdownMenu class="dropdown-menu">
+                                <!-- {3} -->
+                                <li><a href="#">Last 25 Days</a></li>
+                                <li><a href="#">Last 20 Days</a></li>
+                                <li><a href="#">Last 10 Days</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <a role="button" class="pull-right">
+                            <fa name="filter"></fa>Filters</a>
+                    </div>
+                    <span role="separator" class="divider"></span>
+
+                    <div class="col-md-12">
+                        <ul class="timeline">
+                            <li *ngFor="let myDatas of myData" class="timeline-item">
+                                <div class="timeline-badge">
+                                    <div class="radio">
+                                        <label>
+                                                    <input type="radio" name="optionsRadios" id="{{myDatas.radio_id}}" value="option1">
+                                                    <label for="{{myDatas.radio_id}}"></label>
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <span class="timeline-title" id="{{myDatas.radio_id}}">{{myDatas.title}}</span>
+                                        <span class="pull-right"><small class="text-muted">{{myDatas.time}}</small></span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>{{myDatas.content}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
